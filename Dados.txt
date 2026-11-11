@@ -1,0 +1,50 @@
+60218841;Luna;gata;dorme em cima do teclado
+31057720;Thor;cão;late para o aspirador
+48812903;Pipoca;cão;pula quando ouve a palavra "passeio"
+22091187;Mel;gata;derruba copos da mesa, um por um
+70334512;Zeus;cão;tem medo do gato do vizinho
+51200468;Amora;gata;mia para a geladeira
+13870255;Luna;cachorra;rouba meias
+39021746;Bob;cão;come a ração do irmão
+84460013;Bob;gato;dorme 20 horas por dia
+27719384;Lola;cachorra;adora tomar banho
+65502291;Paçoca;gato;caça o ponteiro laser
+44183067;Frida;cachorra;usa laço e se acha
+90027758;Simba;gato;acha que é leão
+18345602;Nina;coelha;rói o fio do carregador
+76690431;Pandora;gata;abre portas sozinha
+33208179;Chico;papagaio;imita o toque do celular
+57741820;Thor;gato;tem nome de cão, mas é gato
+81196354;Fred;hamster;corre a noite inteira na rodinha
+29573006;Luna;calopsita;assobia quando alguém chega
+62015547;Toddy;cão;só come se for na mão
+11204587;Luna;gata;persegue a própria sombra pela casa
+25839016;Thor;cão;tem medo de balão de festa
+36471209;Bob;cachorro;enterra brinquedos dentro do sofá
+47820953;Mel;cachorra;sorri em todas as fotos
+58163472;Zeus;gato;derruba o vaso olhando nos olhos do dono
+69305128;Bolinha;cão;gira atrás do próprio rabo até ficar tonto
+72518364;Nala;gata;dorme dentro de qualquer caixa de papelão
+83947205;Toby;cão;busca a bola mas nunca devolve
+14692830;Pipoca;gata;pula na pia para beber água da torneira
+26037581;Luna;cachorra;uiva junto com a sirene da ambulância
+37958146;Mia;gata;acorda o dono às cinco da manhã
+48273619;Rex;cão;late para o próprio reflexo no espelho
+59481732;Bob;coelho;rói o rodapé da sala
+61740298;Maya;cachorra;rouba chinelos e esconde debaixo da cama
+73092845;Thor;hamster;guarda comida nas bochechas e esquece onde
+85216037;Cacau;cão;desmaia de felicidade quando ganha carinho
+19576403;Lola;gata;abre o armário de petiscos sozinha
+28340751;Pingo;cão;se esconde no banheiro quando chove
+39612584;Zeca;papagaio;repete o nome do vizinho o dia todo
+40825179;Mel;coelha;dá pulinhos no ar quando está feliz
+52961037;Luna;gata;mia para a lua cheia
+64073218;Simba;cão;acha que é maior do que realmente é
+75419803;Branca;gata;escala as cortinas da sala
+86530972;Thor;cachorro;carrega o pote de ração até o dono
+17294865;Amora;cachorra;dá a patinha para qualquer visita
+23681490;Fred;tartaruga;foge do aquário e aparece debaixo do sofá
+34752096;Bob;gato;ronrona tão alto que cobre o som da TV
+45109827;Pandora;cachorra;late para a máquina de lavar roupa
+56384721;Nina;gata;empurra objetos da mesa até caírem
+67920513;Zeus;cachorro;se esconde atrás do dono quando vê o aspirador
