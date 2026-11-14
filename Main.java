@@ -1,8 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
- 
-/** Cenário A · Clínica Veterinária: menu do fichário (tabela hash). */
+
 public class Main {
     static Scanner in = new Scanner(System.in);
  
@@ -27,7 +26,7 @@ public class Main {
         System.out.println("║ 3 - Remover pet (microchip)              ║");
         System.out.println("║ 4 - Mostrar fichário (tabela hash)       ║");
         System.out.println("║ 5 - Estatísticas da tabela               ║");
-        System.out.println("║ 6 - Organizar a sala de espera (em breve)║");
+        System.out.println("║ 6 - Organizar a sala de espera           ║");
         System.out.println("║ 7 - Modo passo a passo (em breve)        ║");
         System.out.println("║ 8 - A Grande Corrida (em breve)          ║");
         System.out.println("║ 0 - Fechar a clínica                     ║");
@@ -36,16 +35,21 @@ public class Main {
  
     public static void main(String[] args) throws IOException {
         // Escolha do tamanho M e da função hash
-        int m = lerInt("Tamanho da tabela M (ex.: 13, 17...): ");
+        int m;
+        do {
+            m = lerInt("Tamanho da tabela M (ex.: 13, 17...): ");
+            if (m <= 0) System.out.println("M precisa ser maior que zero.");
+        } while (m <= 0);
         int f = lerInt("Função hash (1 = soma dos caracteres, 2 = polinomial): ");
         FuncaoHash funcao = (f == 2) ? new HashPolinomial() : new HashSoma();
         TabelaHash tabela = new TabelaHash(m, funcao);
  
         // Carrega o fichário inicial
-        ArrayList<Pet> pets = LeitorDados.lerArquivo("dados.txt");
+        ArrayList<Pet> pets = LeitorDados.lerArquivo("Dados.txt");
         for (Pet p : pets) tabela.inserir(p);
         System.out.println(tabela.getTamanho() + " pets carregados do arquivo.");
  
+        ArrayList<Pet> cadastradosNoMenu = new ArrayList<>();
         int opcao;
         do {
             menu();
@@ -66,6 +70,7 @@ public class Main {
                     if (nome.isEmpty()) {
                         System.out.println("O nome não pode ficar vazio.");
                     } else if (tabela.inserir(new Pet(chip, nome, especie, mania))) {
+                        cadastradosNoMenu.add(new Pet(chip, nome, especie, mania));
                         System.out.println(nome + " foi cadastrado(a) no fichário!");
                     } else {
                         System.out.println("Esse microchip já está cadastrado.");
@@ -93,7 +98,33 @@ public class Main {
                 case 5:
                     tabela.exibirEstatisticas();
                     break;
-                case 6: case 7: case 8:
+                case 6:
+                    ArrayList<Pet> fila = new ArrayList<>();
+                    for (Pet p : pets) {
+                        // Mantém a fila sincronizada com os cadastros/remoções da hash.
+                        if (tabela.existeMicrochip(p.getMicrochip())) fila.add(p);
+                    }
+                    // Inclui também os pets cadastrados pelo menu.
+                    for (Pet p : cadastradosNoMenu) {
+                        if (tabela.existeMicrochip(p.getMicrochip())) fila.add(p);
+                    }
+                    System.out.println("1 - Bubble Sort | 2 - Insertion Sort");
+                    int algoritmo = lerInt("Algoritmo: ");
+                    if (algoritmo != 1 && algoritmo != 2) {
+                        System.out.println("Algoritmo inválido.");
+                        break;
+                    }
+                    Ordenacao.Resultado resultado = algoritmo == 1
+                            ? Ordenacao.bubbleSort(fila, false)
+                            : Ordenacao.insertionSort(fila, false);
+                    System.out.println("Sala de espera em ordem de microchip:");
+                    for (Pet p : resultado.pets) System.out.println("  " + p);
+                    System.out.println("Comparações: " + resultado.comparacoes);
+                    System.out.println(algoritmo == 1 ? "Trocas: " + resultado.trocas
+                            : "Deslocamentos: " + resultado.trocas);
+                    System.out.printf("Tempo: %.3f ms%n", resultado.tempoNanos / 1_000_000.0);
+                    break;
+                case 7: case 8:
                     System.out.println("Ainda vamos implementar (Parte 2 e 3).");
                     break;
                 case 0:
