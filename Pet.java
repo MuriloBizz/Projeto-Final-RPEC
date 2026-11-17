@@ -1,6 +1,6 @@
 import java.text.Normalizer;
- 
-/** Um bichinho cadastrado. O microchip tem 8 dígitos e é único. */
+
+// Representa um pet cadastrado com um microchip único de 8 dígitos.
 public class Pet {
     private final int microchip;
     private final String nome;     // nome original (ex.: "Paçoca")
@@ -18,8 +18,8 @@ public class Pet {
     public String getNome() { return nome; }
     public String getEspecie() { return especie; }
     public String getMania() { return mania; }
- 
-    /** Chave da tabela hash: maiúsculas e sem acento (Paçoca -> PACOCA). */
+
+    // Converte o nome do pet para letras maiúsculas e remove os acentos.
     public String getChave() { return normalizar(nome); }
  
     public static String normalizar(String texto) {

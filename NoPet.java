@@ -1,4 +1,4 @@
-/** Nó da lista ligada de cada balde. */
+// Representa um nó da lista ligada de cada balde da tabela hash.
 public class NoPet {
     Pet pet;
     NoPet proximo;

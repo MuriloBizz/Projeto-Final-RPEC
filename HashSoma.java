@@ -1,4 +1,4 @@
-/** Função hash 1: soma dos códigos dos caracteres, módulo M. */
+// Calcula a posição na tabela usando a soma dos códigos dos caracteres.
 public class HashSoma implements FuncaoHash {
     @Override
     public int calcular(String chave, int m) {

@@ -1,8 +1,8 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
- 
-/** Lê o arquivo de dados no formato microchip;nome;especie;mania. */
+
+// Lê os dados dos pets de um arquivo de texto.
 public class LeitorDados {
     public static ArrayList<Pet> lerArquivo(String caminho) throws IOException {
         ArrayList<Pet> pets = new ArrayList<>();
