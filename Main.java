@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner in = new Scanner(System.in);
- 
+
     static int lerInt(String msg) {
         while (true) {
             System.out.print(msg);
@@ -15,7 +15,7 @@ public class Main {
             }
         }
     }
- 
+
     static void menu() {
         System.out.println();
         System.out.println("╔══════════════════════════════════════════╗");
@@ -28,11 +28,11 @@ public class Main {
         System.out.println("║ 5 - Estatísticas da tabela               ║");
         System.out.println("║ 6 - Organizar a sala de espera           ║");
         System.out.println("║ 7 - Modo passo a passo (em breve)        ║");
-        System.out.println("║ 8 - A Grande Corrida (em breve)          ║");
+        System.out.println("║ 8 - A Grande Corrida                     ║");
         System.out.println("║ 0 - Fechar a clínica                     ║");
         System.out.println("╚══════════════════════════════════════════╝");
     }
- 
+
     public static void main(String[] args) throws IOException {
         // Escolha do tamanho M e da função hash
         int m;
@@ -43,12 +43,12 @@ public class Main {
         int f = lerInt("Função hash (1 = soma dos caracteres, 2 = polinomial): ");
         FuncaoHash funcao = (f == 2) ? new HashPolinomial() : new HashSoma();
         TabelaHash tabela = new TabelaHash(m, funcao);
- 
+
         // Carrega o fichário inicial
         ArrayList<Pet> pets = LeitorDados.lerArquivo("Dados.txt");
         for (Pet p : pets) tabela.inserir(p);
         System.out.println(tabela.getTamanho() + " pets carregados do arquivo.");
- 
+
         ArrayList<Pet> cadastradosNoMenu = new ArrayList<>();
         int opcao;
         do {
@@ -108,15 +108,17 @@ public class Main {
                     for (Pet p : cadastradosNoMenu) {
                         if (tabela.existeMicrochip(p.getMicrochip())) fila.add(p);
                     }
-                    System.out.println("1 - Bubble Sort | 2 - Insertion Sort");
+                    System.out.println("1 - Bubble Sort | 2 - Insertion Sort | 3 - Quick Sort");
                     int algoritmo = lerInt("Algoritmo: ");
-                    if (algoritmo != 1 && algoritmo != 2) {
+                    if (algoritmo < 1 || algoritmo > 3) {
                         System.out.println("Algoritmo inválido.");
                         break;
                     }
-                    Ordenacao.Resultado resultado = algoritmo == 1
-                            ? Ordenacao.bubbleSort(fila, false)
-                            : Ordenacao.insertionSort(fila, false);
+                    // Escolhe o algoritmo; os três devolvem o mesmo tipo Resultado
+                    Ordenacao.Resultado resultado;
+                    if (algoritmo == 1) resultado = Ordenacao.bubbleSort(fila, false);
+                    else if (algoritmo == 2) resultado = Ordenacao.insertionSort(fila, false);
+                    else resultado = QuickSort.ordenar(fila, false);
                     System.out.println("Sala de espera em ordem de microchip:");
                     for (Pet p : resultado.pets) System.out.println("  " + p);
                     System.out.println("Comparações: " + resultado.comparacoes);
@@ -124,8 +126,11 @@ public class Main {
                             : "Deslocamentos: " + resultado.trocas);
                     System.out.printf("Tempo: %.3f ms%n", resultado.tempoNanos / 1_000_000.0);
                     break;
-                case 7: case 8:
-                    System.out.println("Ainda vamos implementar (Parte 2 e 3).");
+                case 7:
+                    System.out.println("Ainda vamos implementar (modo passo a passo).");
+                    break;
+                case 8:
+                    GrandeCorrida.executar();   // Parte 3: mede os 3 algoritmos e imprime as tabelas
                     break;
                 case 0:
                     System.out.println("Clínica fechada. Até amanhã!");
